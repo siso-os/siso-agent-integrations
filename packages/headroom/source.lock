@@ -1,0 +1,5 @@
+source=https://github.com/headroomlabs-ai/headroom.git
+commit=5a0a5a79cd420d39534ab34d317fe0be045f569d
+package=headroom-ai
+version=0.32.0
+extras=proxy

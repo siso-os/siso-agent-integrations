@@ -1,0 +1,12 @@
+{
+  "name": "siso-agent-integrations",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "npm run test:context-firewall && npm run check:headroom",
+    "test:context-firewall": "node packages/context-firewall/smoke-shadow.mjs",
+    "check:headroom": "bash -n packages/headroom/headroom-sidecar.sh && node --check packages/headroom/smoke-oracle-sidecar.mjs && node --check packages/headroom/smoke-live-canary.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('packages/headroom/python/siso_headroom_entry.py').read_text())\""
+  }
+}
