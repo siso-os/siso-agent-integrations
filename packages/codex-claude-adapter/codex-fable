@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# codex-fable — Claude Fable 5.1 (500k) inside the Codex harness, via Bifrost CodexProxy.
+# Usage: codex-fable [--max] [codex args...]      (--max = xhigh reasoning)
+# Preflight: Bifrost :8080, normalizer :8084 with the Fable adapter, CLIProxyAPI :8317.
+set -euo pipefail
+PROFILE=fable; if [[ "${1:-}" == "--max" ]]; then PROFILE=fable-max; shift; fi
+for chk in "8080 Bifrost" "8084 codex-bifrost-normalizer" "8317 CLIProxyAPI"; do set -- $chk "$@"; port=$1; name=$2; shift 2
+  if ! lsof -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; then echo "codex-fable: $name not listening on :$port" >&2; exit 1; fi; done
+exec codex --profile "$PROFILE" "$@"

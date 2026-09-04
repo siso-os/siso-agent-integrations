@@ -11,6 +11,7 @@ This repository is the public source home for integrations that are useful acros
 | [`context-core`](packages/context-core/) | Internal library | Shared message and provider-payload filtering primitives used by the Context Firewall. |
 | [`context-firewall`](packages/context-firewall/) | Shadow only | Measures projected context savings without modifying request or response content. |
 | [`headroom`](packages/headroom/) | Opt-in pilot | Runs a pinned, lossless Headroom sidecar without changing existing provider routes. |
+| [`codex-claude-adapter`](packages/codex-claude-adapter/) | Opt-in pilot, parked | Hosts Claude models (Fable 5.1) inside the Codex CLI: Responses⇄Messages streaming adapter with output continuation, thinking round-trip, and retries. |
 
 Neither package is globally enabled by installing this repository.
 

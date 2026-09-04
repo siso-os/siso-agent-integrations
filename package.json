@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
-    "test": "npm run test:context-firewall && npm run check:headroom",
+    "test": "npm run test:context-firewall && npm run check:headroom && npm run check:codex-claude-adapter",
     "test:context-firewall": "node packages/context-firewall/smoke-shadow.mjs",
-    "check:headroom": "bash -n packages/headroom/headroom-sidecar.sh && node --check packages/headroom/smoke-oracle-sidecar.mjs && node --check packages/headroom/smoke-live-canary.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('packages/headroom/python/siso_headroom_entry.py').read_text())\""
+    "check:headroom": "bash -n packages/headroom/headroom-sidecar.sh && node --check packages/headroom/smoke-oracle-sidecar.mjs && node --check packages/headroom/smoke-live-canary.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('packages/headroom/python/siso_headroom_entry.py').read_text())\"",
+    "check:codex-claude-adapter": "node --check packages/codex-claude-adapter/codex-bifrost-responses-normalizer.mjs && node --check packages/codex-claude-adapter/tests/mock-upstream.mjs && bash -n packages/codex-claude-adapter/codex-fable"
   }
 }

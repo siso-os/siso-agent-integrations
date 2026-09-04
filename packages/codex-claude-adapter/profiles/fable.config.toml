@@ -1,0 +1,21 @@
+# codex --profile fable : Claude Fable 5.1 (500k) hosted in the Codex harness via Bifrost CodexProxy.
+# ~18k boot vs ~40-52k in Claude Code. Use for long-running agents.
+approval_policy = "never"
+hide_agent_reasoning = false
+model = "CodexProxy/claude-fable-5-1[500k]"
+model_provider = "bifrost_http"
+model_reasoning_effort = "high"
+model_reasoning_summary = "auto"
+model_verbosity = "medium"
+sandbox_mode = "danger-full-access"
+# Claude-tuned replacement for Codex's GPT-5 base prompt (replaces, does not append).
+model_instructions_file = "/Users/shaansisodia/.codex/claude-fable-instructions.md"
+# Wait for MCP servers before turn 1 so the tool list (and the Anthropic cache prefix) is stable from the first call.
+mcp_optional_startup_grace_ms = 0
+
+[tools]
+web_search = true
+
+# The ChatGPT-app node REPL adds mcp__cua_repl late and busts the prompt cache; not needed for Fable work.
+[mcp_servers.node_repl]
+enabled = false

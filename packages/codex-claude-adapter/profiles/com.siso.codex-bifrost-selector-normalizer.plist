@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.siso.codex-bifrost-selector-normalizer</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/shaansisodia/.local/bin/node</string>
+    <string>/Users/shaansisodia/bin/codex-bifrost-responses-normalizer.mjs</string>
+  </array>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>CODEX_BIFROST_NORMALIZER_HOST</key>
+    <string>127.0.0.1</string>
+    <key>CODEX_BIFROST_NORMALIZER_PORT</key>
+    <string>8084</string>
+    <key>CODEX_BIFROST_UPSTREAM</key>
+    <string>http://127.0.0.1:8080</string>
+    <key>CODEX_BIFROST_ANTHROPIC_UPSTREAM</key>
+    <string>http://127.0.0.1:8080</string>
+    <key>CODEX_BIFROST_FABLE_ADAPTER</key>
+    <string>1</string>
+    <key>CODEX_BIFROST_CLAUDE_KEYCHAIN_ACCOUNT</key>
+    <string>shaansisodia</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>ThrottleInterval</key>
+  <integer>5</integer>
+  <key>StandardOutPath</key>
+  <string>/Users/shaansisodia/.codex/codex-bifrost-selector-normalizer.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/shaansisodia/.codex/codex-bifrost-selector-normalizer.err</string>
+</dict>
+</plist>

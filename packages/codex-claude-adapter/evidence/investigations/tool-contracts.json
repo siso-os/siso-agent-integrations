@@ -1,0 +1,171 @@
+{
+  "type": "function",
+  "name": "exec_command",
+  "description": "Runs a command in a PTY, returning output or a session ID for ongoing interaction.",
+  "strict": false,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "cmd": {
+        "type": "string",
+        "description": "Shell command to execute."
+      },
+      "justification": {
+        "type": "string",
+        "description": "User-facing approval question for `require_escalated`; omit otherwise."
+      },
+      "login": {
+        "type": "boolean",
+        "description": "True runs the shell with -l/-i semantics; false disables them. Defaults to true."
+      },
+      "max_output_tokens": {
+        "type": "number",
+        "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+      },
+      "prefix_rule": {
+        "type": "array",
+        "description": "Reusable approval prefix for `cmd`, only with `sandbox_permissions: \"require_escalated\"`; for example [\"git\", \"pull\"].",
+        "items": {
+          "type": "string"
+        }
+      },
+      "sandbox_permissions": {
+        "type": "string",
+        "description": "Per-command sandbox override. Defaults to `use_default`; use `require_escalated` for unsandboxed execution.",
+        "enum": [
+          "use_default",
+          "require_escalated"
+        ]
+      },
+      "shell": {
+        "type": "string",
+        "description": "Shell binary to launch. Defaults to the user's default shell."
+      },
+      "tty": {
+        "type": "boolean",
+        "description": "True allocates a PTY for the command; false or omitted uses plain pipes."
+      },
+      "workdir": {
+        "type": "string",
+        "description": "Working directory for the command. Defaults to the turn cwd."
+      },
+      "yield_time_ms": {
+        "type": "number",
+        "description": "Wait before yielding output. Defaults to 10000 ms; effective range is 250-30000 ms."
+      }
+    },
+    "required": [
+      "cmd"
+    ],
+    "additionalProperties": false
+  }
+}
+
+{
+  "type": "function",
+  "name": "write_stdin",
+  "description": "Writes characters to an existing unified exec session and returns recent output.",
+  "strict": false,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "chars": {
+        "type": "string",
+        "description": "Bytes to write to stdin. Defaults to empty, which polls without writing."
+      },
+      "max_output_tokens": {
+        "type": "number",
+        "description": "Output token budget. Defaults to 10000 tokens; larger requests may be capped by policy."
+      },
+      "session_id": {
+        "type": "number",
+        "description": "Identifier of the running unified exec session."
+      },
+      "yield_time_ms": {
+        "type": "number",
+        "description": "Wait before yielding output. Non-empty writes default to 250 ms and cap at 30000 ms; empty polls wait 5000-300000 ms by default."
+      }
+    },
+    "required": [
+      "session_id"
+    ],
+    "additionalProperties": false
+  }
+}
+
+{
+  "type": "function",
+  "name": "request_user_input",
+  "description": "Request user input for one to three short questions and wait for the response. This tool is only available in Plan mode.",
+  "strict": false,
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "questions": {
+        "type": "array",
+        "description": "Questions to show the user. Prefer 1 and do not exceed 3",
+        "items": {
+          "type": "object",
+          "properties": {
+            "header": {
+              "type": "string",
+              "description": "Short header label shown in the UI (12 or fewer chars)."
+            },
+            "id": {
+              "type": "string",
+              "description": "Stable identifier for mapping answers (snake_case)."
+            },
+            "options": {
+              "type": "array",
+              "description": "Provide 2-3 mutually exclusive choices. Put the recommended option first and suffix its label with \"(Recommended)\". Do not include an \"Other\" option in this list; the client will add a free-form \"Other\" option automatically.",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "description": "One short sentence explaining impact/tradeoff if selected."
+                  },
+                  "label": {
+                    "type": "string",
+                    "description": "User-facing label (1-5 words)."
+                  }
+                },
+                "required": [
+                  "label",
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "question": {
+              "type": "string",
+              "description": "Single-sentence prompt shown to the user."
+            }
+          },
+          "required": [
+            "id",
+            "header",
+            "question",
+            "options"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "questions"
+    ],
+    "additionalProperties": false
+  }
+}
+
+{
+  "type": "custom",
+  "name": "apply_patch",
+  "description": "The `apply_patch` tool can be used to edit files. This is a FREEFORM tool, so do not wrap the patch in JSON.",
+  "format": {
+    "type": "grammar",
+    "syntax": "lark",
+    "definition": "start: begin_patch hunk+ end_patch\nbegin_patch: \"*** Begin Patch\" LF\nend_patch: \"*** End Patch\" LF?\n\nhunk: add_hunk | delete_hunk | update_hunk\nadd_hunk: \"*** Add File: \" filename LF add_line+\ndelete_hunk: \"*** Delete File: \" filename LF\nupdate_hunk: \"*** Update File: \" filename LF change_move? change?\n\nfilename: /(.+)/\nadd_line: \"+\" /(.*)/ LF -> line\n\nchange_move: \"*** Move to: \" filename LF\nchange: (change_context | change_line)+ eof_line?\nchange_context: (\"@@\" | \"@@ \" /(.+)/) LF\nchange_line: (\"+\" | \"-\" | \" \") /(.*)/ LF\neof_line: \"*** End of File\" LF\n\n%import common.LF\n"
+  }
+}

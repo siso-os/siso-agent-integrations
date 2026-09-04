@@ -1,0 +1,6 @@
+Codex version: codex-cli 0.152.1
+Profile mechanism: --profile fable overlays /Users/shaansisodia/.codex/fable.config.toml on /Users/shaansisodia/.codex/config.toml.
+Replacement key: top-level model_instructions_file = "/private/tmp/claude-501/-Users-shaansisodia/affb423a-733a-4cf7-9357-ea8a57ad3ed2/scratchpad/agents/prompt-fit/claude-fable-base-instructions.txt"
+Official config-reference description: "Replacement for built-in instructions instead of AGENTS.md."
+Official developer_instructions description: "Additional developer instructions injected into the session (optional)."
+Live verification: override-captured.jsonl instructions equals the draft after normalizing the transport-stripped trailing newline; original GPT-5 identity is absent; global developer instructions remain additive.

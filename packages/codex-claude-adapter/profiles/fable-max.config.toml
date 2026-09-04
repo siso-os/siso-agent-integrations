@@ -1,0 +1,17 @@
+# codex --profile fable-max : same route at xhigh reasoning.
+approval_policy = "never"
+hide_agent_reasoning = false
+model = "CodexProxy/claude-fable-5-1[500k]"
+model_provider = "bifrost_http"
+model_reasoning_effort = "xhigh"
+model_instructions_file = "/Users/shaansisodia/.codex/claude-fable-instructions.md"
+mcp_optional_startup_grace_ms = 0
+model_reasoning_summary = "auto"
+model_verbosity = "medium"
+sandbox_mode = "danger-full-access"
+
+[tools]
+web_search = true
+
+[mcp_servers.node_repl]
+enabled = false
