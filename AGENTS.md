@@ -1,5 +1,7 @@
 # SISO Agent Integrations
 
+**In one line:** Experimental runtime adapters around the agent stack, including context filtering, a lossless sidecar and a Codex-to-Claude model adapter. District: `SISO_Agents` (`~/SISO_Workspace/SISO_Agents/siso-agent-integrations`).
+
 ## Purpose
 
 This repository owns experimental adapters around the SISO Agent Runtime. It does not own the runtime, provider credentials, model routing policy, private fixtures, or operator state.
