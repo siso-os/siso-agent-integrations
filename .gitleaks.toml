@@ -1,0 +1,13 @@
+# The Codex adapter lists Anthropic beta flags (lowercase words ending in a date, e.g. interleaved-thinking-YYYY-MM-DD);
+# the default generic-api-key rule reads one as a key (checked 2026-09-24 by siso-estate: header names, no key).
+# Only that rule, only the adapter's source, only that exact shape; a real key in the same place still fails.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Anthropic beta flag names are header values, not keys"
+condition = "AND"
+targetRules = ["generic-api-key"]
+paths = ['''(^|/)codex-claude-adapter/.*\.(mjs|js|ts)$''']
+regexTarget = "secret"
+regexes = ['''^[a-z]+(-[a-z]+)*-\d{4}-\d{2}-\d{2}$''']
