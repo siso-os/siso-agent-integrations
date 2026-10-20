@@ -1,0 +1,27 @@
+{
+  "name": "siso-workstation",
+  "version": "0.2.0",
+  "description": "Private local MCP bridge that lets ChatGPT control terminal, filesystem, and process operations on this Mac.",
+  "author": {
+    "name": "SISO"
+  },
+  "mcpServers": "./.mcp.json",
+  "apps": "./.app.json",
+  "interface": {
+    "displayName": "SISO Workstation",
+    "shortDescription": "Execute shell, filesystem, and process tasks on this Mac from ChatGPT.",
+    "longDescription": "Private plugin that bridges ChatGPT to a local SISO Workstation MCP server for local shell execution, file read/write/edit, search, and process management.",
+    "developerName": "SISO",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://openai.com",
+    "privacyPolicyURL": "https://openai.com/policies/privacy-policy/",
+    "termsOfServiceURL": "https://openai.com/policies/row-terms-of-use/",
+    "brandColor": "#0A84FF",
+    "screenshots": []
+  }
+}

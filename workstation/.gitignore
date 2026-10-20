@@ -1,0 +1,14 @@
+# written by siso-estate houses.py
+node_modules/
+.next/
+.turbo/
+dist/
+build/
+.venv/
+__pycache__/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
