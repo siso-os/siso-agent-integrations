@@ -14,7 +14,7 @@ import { promisify } from 'node:util';
 const execAsync = promisify(exec);
 
 const serverPath = path.dirname(fileURLToPath(import.meta.url));
-const projectRoot = path.resolve(serverPath, '..', '..');
+const projectRoot = path.resolve(serverPath, '..', '..', '..');
 const defaultWorkspace = (() => {
   const explicit = process.env.SISO_WORKSTATION_DEFAULT_ROOT?.trim();
   if (explicit && existsSync(explicit)) {

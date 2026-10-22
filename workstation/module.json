@@ -1,7 +1,7 @@
 {
   "id": "siso.imports.codex.remote",
   "kind": "agent",
-  "owner": "estate",
+  "owner": "agents-hub",
   "summary": "Workstation MCP exposes bounded host execution tools for SISO.",
   "tags": [
     "layer:agents"

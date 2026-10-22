@@ -1,8 +1,10 @@
 # codex-claude-adapter — Claude models inside the Codex CLI
 
-State: **opt-in pilot, parked 2026-09-04.** Live on the laptop at `:8084`; Fable end-to-end
-unverified since the last rebuild (Haiku verified through the same path). Read `HANDOFF.md`
-before touching anything.
+State: **opt-in pilot; follow-ups dropped 2026-10-21.** See the item-by-item
+[t-0717 disposition](../../../../zero/docs/evidence/t-0717-stale-items.md). Fable
+end-to-end remains unverified. The September handoff records a laptop listener at
+`:8084` and Haiku checks; neither establishes current live adoption. Read
+`HANDOFF.md` before touching anything.
 
 ## What it is
 

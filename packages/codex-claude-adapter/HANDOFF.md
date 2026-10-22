@@ -1,5 +1,10 @@
 # Claude-in-Codex adapter — handoff for the next agent
 
+> **21 October 2026 — historical record.** The stale follow-ups are closed with
+> item-by-item reasons in [t-0717](../../../../zero/docs/evidence/t-0717-stale-items.md).
+> The adapter remains an unverified, opt-in pilot; this is not promotion evidence.
+
+
 Written 2026-09-04 by the Claude Code session that rebuilt the adapter. Everything marked
 VERIFIED was observed in that session; everything marked UNVERIFIED was not. Read this file
 first, then `README.md` for the mechanism, then the evidence files only as needed.
