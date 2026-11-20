@@ -13,7 +13,7 @@ const upstream = new URL(process.env.CODEX_BIFROST_UPSTREAM || 'http://127.0.0.1
 const anthropicUpstream = new URL(process.env.CODEX_BIFROST_ANTHROPIC_UPSTREAM || 'http://127.0.0.1:8080');
 const openAIUpstream = new URL(process.env.CODEX_OPENAI_UPSTREAM || 'https://chatgpt.com');
 const claudeAdapterEnabled = process.env.CODEX_BIFROST_FABLE_ADAPTER === '1';
-const claudeKeychainAccount = process.env.CODEX_BIFROST_CLAUDE_KEYCHAIN_ACCOUNT || process.env.USER || 'shaansisodia';
+const claudeKeychainAccount = process.env.CODEX_BIFROST_CLAUDE_KEYCHAIN_ACCOUNT || process.env.USER || 'you';
 const taskInbox = join(homedir(), '.codex', 'task-inbox');
 const claudeOAuthBeta = [
   'claude-code-20250219',

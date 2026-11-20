@@ -6,8 +6,8 @@
   <string>com.siso.codex-bifrost-selector-normalizer</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/shaansisodia/.local/bin/node</string>
-    <string>/Users/shaansisodia/bin/codex-bifrost-responses-normalizer.mjs</string>
+    <string>/Users/you/.local/bin/node</string>
+    <string>/Users/you/bin/codex-bifrost-responses-normalizer.mjs</string>
   </array>
   <key>EnvironmentVariables</key>
   <dict>
@@ -22,7 +22,7 @@
     <key>CODEX_BIFROST_FABLE_ADAPTER</key>
     <string>1</string>
     <key>CODEX_BIFROST_CLAUDE_KEYCHAIN_ACCOUNT</key>
-    <string>shaansisodia</string>
+    <string>you</string>
   </dict>
   <key>RunAtLoad</key>
   <true/>
@@ -31,8 +31,8 @@
   <key>ThrottleInterval</key>
   <integer>5</integer>
   <key>StandardOutPath</key>
-  <string>/Users/shaansisodia/.codex/codex-bifrost-selector-normalizer.out</string>
+  <string>/Users/you/.codex/codex-bifrost-selector-normalizer.out</string>
   <key>StandardErrorPath</key>
-  <string>/Users/shaansisodia/.codex/codex-bifrost-selector-normalizer.err</string>
+  <string>/Users/you/.codex/codex-bifrost-selector-normalizer.err</string>
 </dict>
 </plist>
