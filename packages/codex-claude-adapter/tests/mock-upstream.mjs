@@ -1,6 +1,6 @@
 // Fault-injecting tee between the normalizer and Bifrost. Mode file: $S/mock-mode  (pass | 429once | 529twice | dropmid | 500once)
 import http from 'node:http'; import fs from 'node:fs';
-const S='/private/tmp/claude-501/-Users-shaansisodia/affb423a-733a-4cf7-9357-ea8a57ad3ed2/scratchpad';
+const S='/private/tmp/claude-501/-Users-you/affb423a-733a-4cf7-9357-ea8a57ad3ed2/scratchpad';
 let count=0;
 http.createServer((req,res)=>{const c=[];req.on('data',d=>c.push(d));req.on('end',()=>{const body=Buffer.concat(c); count+=1;
  const mode=(fs.existsSync(S+'/mock-mode')?fs.readFileSync(S+'/mock-mode','utf8'):'pass').trim();

@@ -9,7 +9,7 @@ model_reasoning_summary = "auto"
 model_verbosity = "medium"
 sandbox_mode = "danger-full-access"
 # Claude-tuned replacement for Codex's GPT-5 base prompt (replaces, does not append).
-model_instructions_file = "/Users/shaansisodia/.codex/claude-fable-instructions.md"
+model_instructions_file = "/Users/you/.codex/claude-fable-instructions.md"
 # Wait for MCP servers before turn 1 so the tool list (and the Anthropic cache prefix) is stable from the first call.
 mcp_optional_startup_grace_ms = 0
 
