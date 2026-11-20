@@ -11,7 +11,11 @@
   <a href="https://github.com/siso-os/siso-agent-integrations/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/siso-os/siso-agent-integrations?style=flat-square&color=1a1512"></a>
 </p>
 <p align="center">
-  <a href="https://www.sisolabs.space/agent-base/"><img src=".github/assets/preview.gif" width="820" alt="SISO Agent Integrations in action"></a>
+  <a href="https://www.sisolabs.space/agent-base/"><img src=".github/assets/hero.webp" width="820" alt="SISO Agent Integrations in action"></a>
+</p>
+<p align="center">
+  <a href=".github/assets/shot-1.png"><img src=".github/assets/shot-1.png" width="404" alt="SISO Agent Integrations: screenshot 1"></a>
+  <a href=".github/assets/shot-2.png"><img src=".github/assets/shot-2.png" width="404" alt="SISO Agent Integrations: screenshot 2"></a>
 </p>
 <p align="center">
   <a href="https://www.sisolabs.space/agent-base/"><b>Website</b></a> · <a href="https://docs.sisolabs.space">Docs</a> · <a href="https://github.com/siso-os">Every SISO OS project</a>
